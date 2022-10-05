@@ -10,13 +10,13 @@ const ProductList = () => {
   }, []);
  
   const getProducts = async () => {
-    const response = await axios.get("http://localhost:5000/products");
+    const response = await axios.get(`${process.env.REACT_APP_BACKEND}/products`);
     setProducts(response.data);
   };
  
   const deleteProduct = async (productId) => {
     try {
-      await axios.delete(`http://localhost:5000/products/${productId}`);
+      await axios.delete(`${process.env.REACT_APP_BACKEND}/products/${productId}`);
       getProducts();
     } catch (error) {
       console.log(error);

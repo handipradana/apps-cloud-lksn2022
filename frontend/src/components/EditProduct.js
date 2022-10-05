@@ -28,11 +28,12 @@ const EditProduct = () => {
  
   const updateProduct = async (e) => {
     e.preventDefault();
+    console.log(process.env.REACT_APP_BACKEND);
     const formData = new FormData();
     formData.append("file", file);
     formData.append("title", title);
     try {
-      await axios.patch(`http://localhost:5000/products/${id}`, formData, {
+      await axios.patch(`${process.env.REACT_APP_BACKEND}/products/${id}`, formData, {
         headers: {
           "Content-type": "multipart/form-data",
         },

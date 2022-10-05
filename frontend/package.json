@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "bulma": "^0.9.4",
+    "dotenv": "^16.0.3",
     "ip": "^1.1.8",
     "local-ip-address": "^1.0.0",
     "pm2": "^5.2.0",

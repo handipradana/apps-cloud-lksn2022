@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
- 
+
 const AddProduct = () => {
   const [title, setTitle] = useState("");
   const [file, setFile] = useState("");
@@ -16,11 +16,12 @@ const AddProduct = () => {
  
   const saveProduct = async (e) => {
     e.preventDefault();
+    console.log(process.env.REACT_APP_BACKEND);
     const formData = new FormData();
     formData.append("file", file);
     formData.append("title", title);
     try {
-      await axios.post("http://localhost:5000/products", formData, {
+      await axios.post(`${process.env.REACT_APP_BACKEND}/products`, formData, {
         headers: {
           "Content-type": "multipart/form-data",
         },
