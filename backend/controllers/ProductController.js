@@ -1,7 +1,11 @@
 import Product from "../models/ProductModel.js";
 import path from "path";
 import fs from "fs";
- 
+
+export const tes = async(req, res)=>{
+    res.send("It's work");
+}
+
 export const getProducts = async(req, res)=>{
     try {
         const response = await Product.findAll();
@@ -25,7 +29,7 @@ export const getProductById = async(req, res)=>{
 }
  
 export const saveProduct = (req, res)=>{
-    if(req.files === null) return res.status(400).json({msg: "No File Uploaded"});
+    // if(req.files === null) return res.status(400).json({msg: "No File Uploaded"});
     const name = req.body.title;
     const file = req.files.file;
     const fileSize = file.data.length;
