@@ -23,8 +23,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-apps": "pm2 start src/index.js",
-    "stop-apps": "pm2 stops src/index.js"
+    "start-apps": "pm2 react-scripts start",
+    "stop-apps": "pm2 react-scripts stop"
   },
   "eslintConfig": {
     "extends": [
