@@ -14,7 +14,7 @@ const EditProduct = () => {
   }, []);
  
   const getProductById = async () => {
-    const response = await axios.get(`http://localhost:5000/products/${id}`);
+    const response = await axios.get(`${process.env.REACT_APP_BACKEND}/products/${id}`);
     setTitle(response.data.name);
     setFile(response.data.image);
     setPreview(response.data.url);
