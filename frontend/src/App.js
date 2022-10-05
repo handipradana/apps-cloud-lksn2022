@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import ProductList from "./components/ProductList";
 import AddProduct from "./components/AddProduct";
 import EditProduct from "./components/EditProduct";
 import ip from "ip";
 import localIp from "local-ip-url";
-var ipAdds = localIp();
+import axios from 'axios';
+// var ipAdds = localIp();
 var ipAdd = ip.address();
 function App() {
-  console.log(ip.address());
+  const [ip, setIP] = useState('');
+
+  const getData = async () => {
+    const res = await axios.get('https://geolocation-db.com/json/')
+    console.log(res.data);
+    setIP(res.data.IPv4)
+  }
+
+  useEffect(()=>{
+    getData()
+  }, [])
   return (
     <BrowserRouter>
       <Routes>
@@ -17,7 +28,7 @@ function App() {
         <Route path="edit/:id" element={<EditProduct/>}/>
       </Routes>
       <div className="App">
-        <h2>Your Ip Address is {ipAdd}, {ipAdds}</h2>
+        <h2>Your Ip Address is {ipAdd}</h2>
         
     </div>
     </BrowserRouter>    

@@ -24,6 +24,8 @@ const AddProduct = () => {
       await axios.post(`${process.env.REACT_APP_BACKEND}/products`, formData, {
         headers: {
           "Content-type": "multipart/form-data",
+           "Access-Control-Allow-Origin": "*",
+           "withCredentials":false
         },
       });
       navigate("/");
